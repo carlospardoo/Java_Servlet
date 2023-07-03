@@ -9,7 +9,7 @@ Son compoentes del lado del servidor. Se transforman en un servlet.
 1. <%  %> : Scriplet. Para incluir código Java. Se inserta en el metodo service del servlet.
 2. <%!  %> : Para declarar variables. Declaraciones
 3. <%--  --%> : Para comentarios
-4. <%=  %> : Para imprimir igual que el out.print
+4. <%=  %> : Para imprimir igual que el out.print. Expresiones
 
 ### Variables implícitas
 
