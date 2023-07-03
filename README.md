@@ -24,63 +24,63 @@ Son compoentes del lado del servidor. Se transforman en un servlet.
 #### Directiva page
 
 1. **import:** Permite importar una o varias clases Java a un archivo JSP.
-``` html
+``` jsp
 
 <%@ page import = "paquete.Clase1 , paquete.ClaseN" %>
 
 ```
 
 2. **contentType:** Permite definir un tipo de respuesta que se enviará al cliente (MIME).
-``` html
+``` jsp
 
 <%@ page contentType = "MIME-Type" %>
 
 ```
 
 3. **session:** Permite definir si el jsp puede acceder a la sesión creada anteriormente.
-``` html
+``` jsp
 
 <%@ page session = "true" %>
 
 ```
 
 4. **isELIgnored:** Permite definir si el jsp puede utilizar un expresion language (EL). Pro defecto es true.
-``` html
+``` jsp
 
 <%@ page isELIgnored = "false" %>
 
 ```
 
 5. **buffer:** Permite definir el tamaño en kb que puede contener el buffer en el archivo jsp. Si se llena, se hace un vaciado (flush) del flujo colocado al PrintWriter o al output servlet.
-``` html
+``` jsp
 
 <%@ page buffer = "tamañoEnKB" %>
 
 ```
 
 6. **errorPage:** Define cual es el JSP encargado del manejo de errores.
-``` html
+``` jsp
 
 <%@ page errorPage = "URL al JSP de error" %>
 
 ```
 
 7. **isErrorPage:** Define si el JSP se encarga de manejar errores.
-``` html
+``` jsp
 
 <%@ page isErrorPage = "true" %>
 
 ```
 
 8. **isThreadSafe:** Especifica si el JSP es seguro para acceder a múltiples hilos. Por defecto es true.
-``` html
+``` jsp
 
 <%@ page isThreadSafe = "true" %>
 
 ```
 
 9. **extends:** Permite extender (heredar) de una clase.
-``` html
+``` jsp
 
 <%@ page extends = "paquete.NombreClase" %>
 
