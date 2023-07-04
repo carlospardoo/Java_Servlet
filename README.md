@@ -85,3 +85,19 @@ Son compoentes del lado del servidor. Se transforman en un servlet.
 <%@ page extends = "paquete.NombreClase" %>
 
 ```
+
+#### Inclusión de Archivos
+
+1. **Inclusión Estática: (translation time)** 
+``` jsp
+
+<%@ include file="Page.jsp" %>
+
+```
+
+2. **Inclusión Dinámica: (request time)** Con la **acción** include.
+``` jsp
+
+<jsp:include page="Page.jsp" />
+
+```
