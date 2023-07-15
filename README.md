@@ -101,3 +101,41 @@ Son compoentes del lado del servidor. Se transforman en un servlet.
 <jsp:include page="Page.jsp" />
 
 ```
+
+#### Java Beans
+
+Existen 4 scopes: page, request, session, application
+
+1. useBean: Define el Java Bean a utilizar. Se coloca el scope que tendra
+
+´´´ jsp
+<jsp:useBean id="rectangulo" class="beans.Rectangulo" scope="session"></jsp:useBean>
+´´´
+
+2. getProperty: Llama a un getter de un atributo de un bean
+
+´´´ jsp
+<jsp:getProperty name="rectangulo" property="base" />
+´´´
+
+3. setProperty: Setea un atributo de un bean
+
+´´´ jsp
+<jsp:setProperty name="rectangulo" property="base" value="<%=baseValor%>">
+´´´
+
+#### Expression Language
+
+Simplifican el acceso a las propiedades de un Java Bean. Llaman al getter
+
+´´´ jsp
+${nombreBean.nombrePropiedad}
+${nombreBean["nombrePropiedad"]}
+${alumno.direccion.calle} <%-- beans anidados --%>
+${pageContext.session.id} <%-- variables implicitas --%>
+${aram.nombre} <%-- parametros --%>
+${header["user-agent"]} <%-- headers --%>
+${cookie.nombreCookie.value} <%-- cookies --%>
+´´´
+
+Para definir un expression language se debe haber agregado el bean en un scope de un servlet con el metodo setAttribute()
