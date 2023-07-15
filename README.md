@@ -129,13 +129,73 @@ Existen 4 scopes: page, request, session, application
 Simplifican el acceso a las propiedades de un Java Bean. Llaman al getter
 
 ´´´ jsp
+
 ${nombreBean.nombrePropiedad}
 ${nombreBean["nombrePropiedad"]}
-${alumno.direccion.calle} <%-- beans anidados --%>
-${pageContext.session.id} <%-- variables implicitas --%>
-${aram.nombre} <%-- parametros --%>
+<%-- beans anidados --%>
+${alumno.direccion.calle} 
+<%-- variables implicitas --%>
+${pageContext.session.id} 
+${param.nombre} <%-- parametros --%>
 ${header["user-agent"]} <%-- headers --%>
 ${cookie.nombreCookie.value} <%-- cookies --%>
+
 ´´´
 
 Para definir un expression language se debe haber agregado el bean en un scope de un servlet con el metodo setAttribute()
+
+#### JSTL (Java Standard Tag Library)
+
+Extiende las funcionalidades de lso JSPs agregando las siguientes librerias:
+
+- **Core:** Leer y manipular datos, iterar, condicionales.
+- **xml:** Manipular documentos xml.
+- **sql:** Ejecutar consultas a la base de datos y crear conexiones.
+- **fmt:** Da formato a cadenas, con internacionalización (Locale).
+
+Agregar librerias standar.jar y jstl.jar. Algunos servidores lo agregan por defecto.
+´´´ jsp
+<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
+<html xmlns:c="http://java.sun.com/jstl/core">
+´´´
+
+##### Tags
+
+1. **Despliegue de información: ** 
+´´´ jsp
+<c:out value="${persona.nombre}">
+´´´
+
+2. **Creacion y maipulacino de variables ** 
+´´´ jsp
+<c:set var="nombre" value="Carlos" scope="page >
+´´´
+
+3. **Elementos condicionales: ** 
+´´´ jsp
+<c:if test="${ i> 0}"> 
+<c:when test="a">
+´´´
+
+4. **Iteración: **
+´´´ jsp
+<c:if test="${ i> 0}"> 
+<c:forEach var="persona" items="${personas}">
+´´´
+
+5. **Importación de recurso web: **
+´´´ jsp
+<c:import url="recursoExterno">
+´´´
+
+6. **Redireccionamiento: **
+´´´ jsp
+<c:redirect url="${nuevaUrl}" />
+´´´
+
+7. **Manejo de parámetros: **
+´´´ jsp
+<c:import url="c-import-param,jsp" >
+    <c:param name="nombre" value="${param.select}" />
+</c:import>
+´´´
